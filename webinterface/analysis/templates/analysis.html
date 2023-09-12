@@ -1,0 +1,195 @@
+<div class="row top-buffer flex-nowrap">
+<div class="col-2 card" id="col_profiles">
+    <div id="profiles">
+      <div class="filter-wrapper" id="filter_profiles" style="margin: 10px">
+        <input type="radio" class="filter-checkbox" name="filter" data-filter="" value="all" checked="checked" />
+        All
+        <input type="radio" class="filter-checkbox ms-3" name="filter" data-filter="true" value="blocked" />
+        Blocked
+      </div>
+
+      <table id="table_profiles" class="table table-hover">
+        <thead>
+          <tr>
+            <th> Profiles </th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+
+  <div class="col-10" id="col_analysis">
+
+    <div class="row">
+      <div class="col-auto">
+        <button type="button" class="btn btn-outline-primary btn-sm pull-right" id="profile-tw-hide-btn">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <div class="col-auto px-2">
+        <p class="fw-bold" id="active_profile_tw"></p>
+      </div>
+    </div>
+
+    <div class="row">
+      <table id="table_ipinfo" class="table">
+        <thead>
+          <tr>
+            <th data-toggle="tooltip" data-placement="top" title="Internet Protocol address">IP</th>
+            <th data-toggle="tooltip" data-placement="top" title="Country by Geolocation">Country</th>
+            <th data-toggle="tooltip" data-placement="top" title="Reverse Domain Name System">Reverse DNS</th>
+            <th data-toggle="tooltip" data-placement="top" title="Autonomous System Numbers">ASN</th>
+            <th data-toggle="tooltip" data-placement="top" title="Threat Intelligence">Threat Intel</th>
+            <th data-toggle="tooltip" data-placement="top" title="The higher the score the more malicious this IP is">URL score</th>
+            <th data-toggle="tooltip" data-placement="top" title="Ratio of samples downloaded from this ip  by virustotal">Download score</th>
+            <th data-toggle="tooltip" data-placement="top" title="Ratio of malicious files obtained from the same referrer as this ip by virustotal">Reference score</th>
+            <th data-toggle="tooltip" data-placement="top" title="Ratio of malicious files communicating with this IP by virustotal">Communication score</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+
+
+    <div class="row">
+      <nav class="navbar mt navbar-light">
+        <form class="form-inline">
+          <div id="buttons">
+            <button class="btn btn-outline-primary active" type="button" id="button_timeline" data-mdb-ripple-color="dark"
+              data-tableid="timeline">Timeline</button>
+            <button class="btn btn-outline-secondary" type="button" id="button_timeline_flows" data-mdb-ripple-color="dark"
+              data-tableid="timeline_flows">Flows</button>
+            <button class="btn btn-outline-success" type="button" id="button_outtuples" data-mdb-ripple-color="dark"
+              data-tableid="outtuples">Outgoing</button>
+            <button class="btn btn-outline-danger" type="button" id="button_intuples" data-mdb-ripple-color="dark"
+              data-tableid="intuples">Incoming</button>
+            <button class="btn btn-outline-warning" type="button" id="button_alerts" data-mdb-ripple-color="dark" data-tableid="alerts">Alerts</button>
+            <button class="btn btn-outline-info" type="button" id="button_evidence" data-mdb-ripple-color="dark"
+              data-tableid="evidence">Evidence</button>
+          </div>
+        </form>
+      </nav>
+    </div>
+
+
+    <div class="row">
+      <div id="timeline" class="mt-4">
+        <!--                <table border="0" cellspacing="5" cellpadding="5">-->
+        <!--                    <tbody><tr>-->
+        <!--                        <td><input type="text" id="table_timeline_filter_input" size="30"></td>-->
+        <!--                        <td><button class="btn btn-outline-success" id="table_timeline_filter_button">Search</button></td>-->
+        <!--                    </tr>-->
+        <!--                  </tbody>-->
+        <!--                </table>-->
+
+        <table id="table_timeline" class="table table-hover mt-2 table-striped display nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Destination port name</th>
+              <th>Preposition</th>
+              <th>Address</th>
+              <th>DNS resolution</th>
+              <th>Port/protocol</th>
+              <th>State</th>
+              <th>Sent bytes</th>
+              <th>Received bytes</th>
+              <th>Total bytes</th>
+              <th>Duration</th>
+              <th>Warning</th>
+              <th>Critical warning</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+      <div id="alerts" class="mt-4" style="display:none;">
+        <table id="table_alerts" class="table table-striped display  nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>Alert</th>
+              <th>Profile</th>
+              <th>Timewindow</th>
+              <th>Evidence Count</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+      <div id="evidence" class="mt-4" style="display:none;">
+        <table id="table_evidence" class="table table-striped display " style="width:100%">
+          <thead>
+            <tr>
+              <th>Evidence</th>
+              <th>Confidence</th>
+              <th>Threat Level</th>
+              <th>Category</th>
+              <th>Tag</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+      <div id="timeline_flows" class="mt-4" style="display:none;">
+        <table id="table_timeline_flows" class="table table-striped display  nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Duration</th>
+              <th>Source address</th>
+              <th>Source port</th>
+              <th>Dest address</th>
+              <th>Dest port</th>
+              <th>Protocol</th>
+              <th>Origin state</th>
+              <th>State</th>
+              <th>Packets</th>
+              <th>Total bytes</th>
+              <th>Source packets</th>
+              <th>Source bytes</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+      <div id="outtuples" class="mt-4" style="display:none;">
+        <table id="table_outtuples" class="table table-striped display" style="width:100%">
+          <thead>
+            <tr>
+              <th>OutTuple</th>
+              <th>Behaviour</th>
+              <th>Country</th>
+              <th>Reverse DNS</th>
+              <th>ASN</th>
+              <th>Threat Intel</th>
+              <th>URL score</th>
+              <th>Download score</th>
+              <th>Reference score</th>
+              <th>Communication score</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+
+      <div id="intuples" class="mt-4" style="display:none;">
+        <table id="table_intuples" class="table table-striped display  nowrap" style="width:100%">
+          <thead>
+            <tr>
+              <th>InTuple</th>
+              <th>Behaviour</th>
+              <th>Country</th>
+              <th>Reverse DNS</th>
+              <th>ASN</th>
+              <th>Threat Intel</th>
+              <th>URL score</th>
+              <th>Download score</th>
+              <th>Reference score</th>
+              <th>Communication score</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

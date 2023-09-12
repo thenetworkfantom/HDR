@@ -1,0 +1,87 @@
+#profiles tr {
+    cursor: pointer;
+}
+
+.top-buffer {
+    margin-top: 20px;
+}
+
+.left-buffer {
+    margin-left: 20px;
+}
+
+.col-xs-0,
+.col-sm-0,
+.col-md-0,
+.col-lg-0,
+.col-0 {
+    flex: 0 0 0;
+    max-width: 0;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+#table_timeline_flows tr td:nth-child(3):hover,
+table tr th:nth-child(3):hover {
+    cursor: pointer;
+}
+
+#table_timeline_flows tr td:nth-child(5):hover,
+table tr th:nth-child(5):hover {
+    cursor: pointer;
+}
+
+#table_timeline tr td:nth-child(4):hover,
+table tr th:nth-child(4):hover {
+    cursor: pointer;
+}
+
+.dataTables_wrapper .dataTables_filter {
+    float: left;
+}
+
+.dataTables_wrapper .dataTables_length {
+    float: right;
+}
+
+#table_ipinfo {
+    border-radius: 15px;
+    border-style: solid;
+}
+
+tr.row_selected td {
+    background-color: #EAEAEA  !important;
+}
+
+.table-hover>tbody>tr:hover>td,
+.table-hover>tbody>tr:hover>th {
+    background-color:  #F2F2F2 ;
+}
+
+.dataTables_filter {
+    position: relative;
+}
+
+.dataTables_filter input {
+    width: 250px;
+    height: 32px;
+    background: #fcfcfc;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    text-indent: 10px;
+}
+
+.dataTables_filter .fa-search {
+    position: absolute;
+    top: 10px;
+    left: auto;
+    right: 5px;
+}
+
+@media only screen and (max-width: 1350px) {
+    .search-box {
+      width: 125px!important;
+      padding-bottom: 10px!important;
+    }
+}
